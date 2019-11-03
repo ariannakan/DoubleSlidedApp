@@ -15,6 +15,7 @@ public class Tile {
 	
 	public void flip() {
 		flipped = !flipped;
+		System.out.println(flipped);
 	}
 	
 	public void setLocation(Location loc) {

@@ -22,16 +22,18 @@ public class FlipController extends MouseAdapter{
 	
 	public void mousePressed(MouseEvent me) {
 		System.out.println(me.getPoint());
-		Tile tile = model.getTile();
-		Point p = me.getPoint();
-		Rectangle r = new Rectangle(tile.getLocation().col*100, tile.getLocation().row*100, 100, 100);
-		if(r.contains(p)) {
-			//if so flip and move
-			tile.flip();
-			System.out.println(tile.visibleDigit());
-			tile.setLocation(new Location(1,2));
-			//refresh display
-			app.repaint();
+		for(int i = 1; i <= 9; i++) {
+			Tile tile = model.getTile();
+			Point p = me.getPoint();
+			Rectangle r = new Rectangle(tile.getLocation().col*100, tile.getLocation().row*100, 100, 100);
+			if(r.contains(p)) {
+				//if so flip and move
+				tile.flip();
+				System.out.println(tile.visibleDigit());
+				//tile.setLocation(new Location(1,2));
+				//refresh display
+				app.repaint();
+			}
 		}
 	}
 }
