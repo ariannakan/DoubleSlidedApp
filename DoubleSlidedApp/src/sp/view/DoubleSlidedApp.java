@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import sp.controller.FlipController;
 import sp.controller.ResetController;
+import sp.controller.SolutionController;
 import sp.model.Model;
 
 import javax.swing.GroupLayout;
@@ -27,6 +28,7 @@ public class DoubleSlidedApp extends JFrame {
 	PuzzleView panel;
 	Model model;
 	FlipController fc;
+	SolutionController sc;
 	
 	public JLabel numberMovesLabel;
 	
@@ -49,13 +51,16 @@ public class DoubleSlidedApp extends JFrame {
 		fc = new FlipController(this, model);
 		panel.addMouseListener(fc);
 		
+		sc = new SolutionController(this, model);
+		panel.addMouseListener(sc);
+		
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ResetController(this, model, fc)); 
 		
 		JLabel lblNumberOfMoves = new JLabel("Number of Moves:");
 		lblNumberOfMoves.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		numberMovesLabel = new JLabel("");
+		numberMovesLabel = new JLabel("0");
 		numberMovesLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

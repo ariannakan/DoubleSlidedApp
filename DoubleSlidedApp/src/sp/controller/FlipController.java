@@ -40,10 +40,33 @@ public class FlipController extends MouseAdapter{
 				numMoves++;
 				app.numberMovesLabel.setText("" + numMoves);
 				
+				if(checkWinCase()){
+					System.out.println("WIN");
+				}
+				//checkLoseCase();
 				//refresh display
 				app.repaint();
 			}
 		}
+	}
+	
+	public boolean checkWinCase(){
+		for(Iterator<Tile> it = model.tiles(); it.hasNext();) {
+			Tile tile = it.next();
+			for(Iterator<Tile> s = model.tiles(); s.hasNext();) {
+				Tile sol = s.next();
+				if(tile.visibleDigit() != sol.visibleDigit()){
+					System.out.printf("wrong: ", tile.visibleDigit());
+					return false;
+				}
+			}
+			
+		}
+		return true;
+	}
+	
+	public boolean checkLoseCase(){
+		return false;
 	}
 	
 	

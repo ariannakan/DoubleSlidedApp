@@ -7,6 +7,12 @@ public class Tile {
 	boolean flipped;
 	Location location;
 
+	public Tile(int up){
+		this.up = up;
+		this.down = 0;
+		this.flipped = false;	//not flipped
+	}
+	
 	public Tile(int up, int down, boolean flipped) {
 		this.up = up;
 		this.down = down;
