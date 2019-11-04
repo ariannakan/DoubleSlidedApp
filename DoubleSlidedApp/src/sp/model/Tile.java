@@ -13,9 +13,9 @@ public class Tile {
 		this.flipped = flipped;
 	}
 	
+	
 	public void flip() {
 		flipped = !flipped;
-		System.out.println(flipped);
 	}
 	
 	public void setLocation(Location loc) {
@@ -26,6 +26,10 @@ public class Tile {
 	
 	public int visibleDigit() {
 		if(!flipped) { return up; } else { return down; }
+	}
+	
+	public boolean getState() {
+		return flipped;
 	}
 
 }

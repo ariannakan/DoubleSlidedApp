@@ -26,6 +26,8 @@ public class DoubleSlidedApp extends JFrame {
 	PuzzleView panel;
 	Model model;
 	
+	public JLabel numberMovesLabel;
+	
 	public PuzzleView getDrawingPanel() { return panel; }
 
 	/**
@@ -52,8 +54,9 @@ public class DoubleSlidedApp extends JFrame {
 		JLabel lblNumberOfMoves = new JLabel("Number of Moves:");
 		lblNumberOfMoves.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		JLabel numberMovesLabel = new JLabel("New label");
+		numberMovesLabel = new JLabel("");
 		numberMovesLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
