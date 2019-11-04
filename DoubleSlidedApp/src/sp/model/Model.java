@@ -6,7 +6,7 @@ public class Model {
 
 	final Tile tile1 = new Tile(1, 4, false);
 	final Tile tile2 = new Tile(3, 2, true);
-	final Tile tile3 = new Tile(2, 3, false);	//empty tile
+	public Tile emptyTile = new Tile(0, 0, false);	//empty tile
 	final Tile tile4 = new Tile(3, 2, true);
 	final Tile tile5 = new Tile(2, 3, true);
 	final Tile tile6 = new Tile(4, 1, false);
@@ -24,8 +24,8 @@ public class Model {
 		tile2.setLocation(new Location(0,1));
 		puzzle.add(tile2);
 		
-		tile3.setLocation(new Location(0,2));
-		puzzle.add(tile3);
+		emptyTile.setLocation(new Location(0,2));
+		puzzle.add(emptyTile);
 		
 		tile4.setLocation(new Location(1,0));
 		puzzle.add(tile4);
@@ -52,6 +52,15 @@ public class Model {
 	public Tile getTile(int location) { 
 		
 		return puzzle.get(location); 
+	}
+	
+	public boolean isEmptyTile(Tile t){
+		if(t.equals(emptyTile)){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	
 	/** Return the tiles dynamically **/

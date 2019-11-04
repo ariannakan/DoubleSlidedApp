@@ -46,6 +46,13 @@ public class PuzzleView extends JPanel {
 				g.setColor(Color.white);
 				g.drawString("" + dig, loc.col * 100 + 36, loc.row * 100 + 66);	//(36,66) center of corner tile
 			}
+			
+			if (model.isEmptyTile(t)){
+				g.setColor(Color.yellow);
+				g.fillRect(loc.col*100, loc.row*100, 100, 100);
+			}
+			
+
 		}
 		
 		//sets tile borders

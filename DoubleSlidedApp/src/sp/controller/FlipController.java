@@ -29,15 +29,30 @@ public class FlipController extends MouseAdapter{
 			Point p = me.getPoint();
 			Rectangle r = new Rectangle(tile.getLocation().col*100, tile.getLocation().row*100, 100, 100);
 			if(r.contains(p)) {
+				//is tile valid?
+				if(!isValidMove(tile)){	//if not, do nothing
+					return;
+				}
 				//if so flip and move
 				tile.flip();
 				numMoves++;
 				app.numberMovesLabel.setText("" + numMoves);
-				//System.out.println(tile.visibleDigit());
-				//tile.setLocation(new Location(1,2));
+				
 				//refresh display
 				app.repaint();
 			}
 		}
+	}
+	
+	public boolean isValidMove(Tile t){
+		int emptyx = model.emptyTile.getLocation().row;
+		int emptyy = model.emptyTile.getLocation().col;
+		int tilex = t.getLocation().row;
+		int tiley = t.getLocation().col;
+		int distance = Math.abs(tilex - emptyx) + Math.abs(tiley - emptyy);
+		if(distance == 1.0){
+			return true;
+		}
+		return false;
 	}
 }
