@@ -31,5 +31,6 @@ public class Tile {
 	public boolean getState() {
 		return flipped;
 	}
+	
 
 }

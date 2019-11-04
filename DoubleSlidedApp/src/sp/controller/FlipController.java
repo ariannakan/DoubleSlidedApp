@@ -15,6 +15,7 @@ import sp.view.PuzzleView;
 public class FlipController extends MouseAdapter{
 	Model model;
 	DoubleSlidedApp app;
+	
 	public int numMoves = 0;
 	
 	public FlipController(DoubleSlidedApp app, Model m) {
@@ -33,8 +34,9 @@ public class FlipController extends MouseAdapter{
 				if(!isValidMove(tile)){	//if not, do nothing
 					return;
 				}
-				//if so flip and move
+				//if so flip, move and increment numMoves
 				tile.flip();
+				slideTile(tile);
 				numMoves++;
 				app.numberMovesLabel.setText("" + numMoves);
 				
@@ -43,6 +45,7 @@ public class FlipController extends MouseAdapter{
 			}
 		}
 	}
+	
 	
 	public boolean isValidMove(Tile t){
 		int emptyx = model.emptyTile.getLocation().row;
@@ -54,5 +57,11 @@ public class FlipController extends MouseAdapter{
 			return true;
 		}
 		return false;
+	}
+	
+	public void slideTile(Tile t){
+		Location emptyLoc = model.emptyTile.getLocation();
+		model.emptyTile.setLocation(t.getLocation());
+		t.setLocation(emptyLoc);
 	}
 }

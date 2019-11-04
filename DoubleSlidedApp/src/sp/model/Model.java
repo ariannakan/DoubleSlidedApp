@@ -6,7 +6,7 @@ public class Model {
 
 	final Tile tile1 = new Tile(1, 4, false);
 	final Tile tile2 = new Tile(3, 2, true);
-	public Tile emptyTile = new Tile(0, 0, false);	//empty tile
+	final public Tile emptyTile = new Tile(0, 0, false);	//empty tile
 	final Tile tile4 = new Tile(3, 2, true);
 	final Tile tile5 = new Tile(2, 3, true);
 	final Tile tile6 = new Tile(4, 1, false);
@@ -17,34 +17,39 @@ public class Model {
 	
 	ArrayList<Tile> puzzle = new ArrayList<>();
 	
+	
 	public Model() {
-		tile1.setLocation(new Location(0,0));
+		reset();
 		puzzle.add(tile1);
-
-		tile2.setLocation(new Location(0,1));
 		puzzle.add(tile2);
-		
-		emptyTile.setLocation(new Location(0,2));
 		puzzle.add(emptyTile);
-		
-		tile4.setLocation(new Location(1,0));
 		puzzle.add(tile4);
-		
-		tile5.setLocation(new Location(1,1));
 		puzzle.add(tile5);
-		
-		tile6.setLocation(new Location(1,2));
 		puzzle.add(tile6);
-		
-		tile7.setLocation(new Location(2,0));
 		puzzle.add(tile7);
-		
-		tile8.setLocation(new Location(2,1));
 		puzzle.add(tile8);
-		
-		tile9.setLocation(new Location(2,2));
 		puzzle.add(tile9);
+	}
+	
+	public void reset() {
+		tile1.setLocation(new Location(0,0));
+		tile2.setLocation(new Location(0,1));
+		emptyTile.setLocation(new Location(0,2));
+		tile4.setLocation(new Location(1,0));
+		tile5.setLocation(new Location(1,1));
+		tile6.setLocation(new Location(1,2));
+		tile7.setLocation(new Location(2,0));
+		tile8.setLocation(new Location(2,1));
+		tile9.setLocation(new Location(2,2));
 		
+		tile1.flipped = false;
+		tile2.flipped = true;
+		tile4.flipped = true;
+		tile5.flipped = true;
+		tile6.flipped = false;
+		tile7.flipped = false;
+		tile8.flipped = false;
+		tile9.flipped = true;
 	}
 	
 	
