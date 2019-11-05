@@ -16,11 +16,14 @@ public class FlipController extends MouseAdapter{
 	Model model;
 	DoubleSlidedApp app;
 	
+	SolutionController sc;
+	
 	public int numMoves = 0;
 	
 	public FlipController(DoubleSlidedApp app, Model m) {
 		this.app = app;
 		this.model = m;
+		sc = new SolutionController(m, app);
 	}
 	
 	public void mousePressed(MouseEvent me) {
@@ -40,34 +43,19 @@ public class FlipController extends MouseAdapter{
 				numMoves++;
 				app.numberMovesLabel.setText("" + numMoves);
 				
-				if(checkWinCase()){
-					System.out.println("WIN");
+				if(sc.checkWinCase()){
+					System.out.println("YOU WIN");
 				}
-				//checkLoseCase();
+				else if(sc.checkLoseCase()){
+					System.out.println("YOU LOSE");
+				}
 				//refresh display
 				app.repaint();
 			}
 		}
 	}
+
 	
-	public boolean checkWinCase(){
-		for(Iterator<Tile> it = model.tiles(); it.hasNext();) {
-			Tile tile = it.next();
-			for(Iterator<Tile> s = model.tiles(); s.hasNext();) {
-				Tile sol = s.next();
-				if(tile.visibleDigit() != sol.visibleDigit()){
-					System.out.printf("wrong: ", tile.visibleDigit());
-					return false;
-				}
-			}
-			
-		}
-		return true;
-	}
-	
-	public boolean checkLoseCase(){
-		return false;
-	}
 	
 	
 	public boolean isValidMove(Tile t){

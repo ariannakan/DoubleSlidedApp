@@ -51,9 +51,6 @@ public class DoubleSlidedApp extends JFrame {
 		fc = new FlipController(this, model);
 		panel.addMouseListener(fc);
 		
-		sc = new SolutionController(this, model);
-		panel.addMouseListener(sc);
-		
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ResetController(this, model, fc)); 
 		

@@ -2,6 +2,7 @@ package sp.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class Solution {
 
@@ -42,8 +43,20 @@ public class Solution {
 		
 	}
 	
+	/** Return tile's visible number at corresponding location **/
+	public int getTileFromLoc(Location loc){
+		for(Iterator<Tile> it = this.tiles(); it.hasNext();) {
+			Tile tile = it.next();
+			if(tile.location.equals(loc)){
+				return tile.visibleDigit();
+			}
+		}
+		return 0;
+	}
+	
 	/** Return the tiles dynamically **/
 	public Iterator<Tile> tiles(){
 		return solution.iterator();
 	}
+	
 }

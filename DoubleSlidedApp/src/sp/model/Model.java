@@ -68,6 +68,17 @@ public class Model {
 		}
 	}
 	
+	/** Return tile's visible number at corresponding location **/
+	public int getTileFromLoc(Location loc){
+		for(Iterator<Tile> it = this.tiles(); it.hasNext();) {
+			Tile tile = it.next();
+			if((tile.location.row == loc.row) && (tile.location.col == loc.col)){
+				return tile.visibleDigit();
+			}
+		}
+		return 0;
+	}
+	
 	/** Return the tiles dynamically **/
 	public Iterator<Tile> tiles(){
 		return puzzle.iterator();
