@@ -31,6 +31,10 @@ public class DoubleSlidedApp extends JFrame {
 	SolutionController sc;
 	
 	public JLabel numberMovesLabel;
+	public JLabel winLabel;
+	public JLabel loseLabel;
+	
+	public boolean moveEnabled = true;
 	
 	public PuzzleView getDrawingPanel() { return panel; }
 
@@ -60,26 +64,46 @@ public class DoubleSlidedApp extends JFrame {
 		numberMovesLabel = new JLabel("0");
 		numberMovesLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
+		winLabel = new JLabel("Good Job! You've Won!");
+		winLabel.setVisible(false);
+		
+		loseLabel = new JLabel("Oh no! You've lost!");
+		loseLabel.setVisible(false);
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblNumberOfMoves)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(numberMovesLabel))
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE))
-					.addGap(92)
-					.addComponent(btnReset)
-					.addContainerGap())
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(92)
+							.addComponent(btnReset))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(18)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(loseLabel)
+								.addComponent(winLabel))))
+					.addGap(17))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(126)
+							.addComponent(winLabel)
+							.addGap(21)
+							.addComponent(loseLabel)))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNumberOfMoves)

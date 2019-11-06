@@ -29,6 +29,9 @@ public class ResetController implements ActionListener {
 		model.reset();
 		fc.numMoves = 0;
 		app.numberMovesLabel.setText("" + fc.numMoves);
+		app.loseLabel.setVisible(false);
+		app.winLabel.setVisible(false);
+		app.moveEnabled = true;
 		app.repaint();
 		
 	}

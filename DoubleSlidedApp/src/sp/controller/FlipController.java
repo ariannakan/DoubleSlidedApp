@@ -27,30 +27,34 @@ public class FlipController extends MouseAdapter{
 	}
 	
 	public void mousePressed(MouseEvent me) {
-		//System.out.println(me.getPoint());
-		for(Iterator<Tile> it = model.tiles(); it.hasNext();) {
-			Tile tile = it.next();
-			Point p = me.getPoint();
-			Rectangle r = new Rectangle(tile.getLocation().col*100, tile.getLocation().row*100, 100, 100);
-			if(r.contains(p)) {
-				//is tile valid?
-				if(!isValidMove(tile)){	//if not, do nothing
-					return;
+		if(!app.moveEnabled){
+			return;
+		}
+		else{
+			for(Iterator<Tile> it = model.tiles(); it.hasNext();) {
+				Tile tile = it.next();
+				Point p = me.getPoint();
+				Rectangle r = new Rectangle(tile.getLocation().col*100, tile.getLocation().row*100, 100, 100);
+				if(r.contains(p)) {
+					//is tile valid?
+					if(!isValidMove(tile)){	//if not, do nothing
+						return;
+					}
+					//if so flip, move and increment numMoves
+					tile.flip();
+					slideTile(tile);
+					numMoves++;
+					app.numberMovesLabel.setText("" + numMoves);
+					
+					if(sc.checkWinCase()){
+						System.out.println("YOU WIN");
+					}
+					else if(sc.checkLoseCase()){
+						System.out.println("YOU LOSE");
+					}
+					//refresh display
+					app.repaint();
 				}
-				//if so flip, move and increment numMoves
-				tile.flip();
-				slideTile(tile);
-				numMoves++;
-				app.numberMovesLabel.setText("" + numMoves);
-				
-				if(sc.checkWinCase()){
-					System.out.println("YOU WIN");
-				}
-				else if(sc.checkLoseCase()){
-					System.out.println("YOU LOSE");
-				}
-				//refresh display
-				app.repaint();
 			}
 		}
 	}

@@ -26,7 +26,11 @@ public class PuzzleView extends JPanel {
 				
 		g.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
 		
-		for(Iterator<Tile> it = model.tiles(); it.hasNext();) {
+		if(model == null){
+			return;
+		}
+		
+		for(Iterator<Tile> it = model.tiles(); it.hasNext();) {	//something here is causing null pointer exception
 			Tile t = it.next();
 			int dig = t.visibleDigit();
 			//System.out.println(t.visibleDigit());

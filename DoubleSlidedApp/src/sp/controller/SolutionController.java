@@ -31,6 +31,8 @@ public class SolutionController{
 				return false;
 			}
 		}
+		app.winLabel.setVisible(true);
+		app.moveEnabled = false;
 		return true;
 	}
 	
@@ -46,10 +48,14 @@ public class SolutionController{
 		};
 		for(Iterator<Tile> it = model.tiles(); it.hasNext();) {
 			Tile tile = it.next();
-			System.out.println(tile.visibleDigit());
+			//System.out.println(tile.visibleDigit());
 			int val = mapOfDigits.get(tile.visibleDigit());
 			mapOfDigits.replace(tile.visibleDigit(), (val + 1));
 			//System.out.printf("key %d val %d\n",sol.visibleDigit(),mapOfDigits.get(sol.visibleDigit()));
+		}
+		if(mapOfDigits.containsValue(4)){
+			app.loseLabel.setVisible(true);
+			app.moveEnabled = false;
 		}
 		return mapOfDigits.containsValue(4);
 	}
