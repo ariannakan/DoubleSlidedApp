@@ -16,7 +16,7 @@ public class SolutionController{
 	Solution solution;
 	
 	
-	SolutionController(Model m, DoubleSlidedApp app){
+	public SolutionController(Model m, DoubleSlidedApp app){
 		this.model = m;
 		this.app = app;
 		solution = new Solution();

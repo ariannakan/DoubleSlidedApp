@@ -20,23 +20,17 @@ public class Tile {
 	}
 	
 	
-	public void flip() {
-		flipped = !flipped;
-	}
+	public void flip() { flipped = !flipped; }
 	
-	public void setLocation(Location loc) {
-		location = loc;
-	}
+	public void setLocation(Location loc) { location = loc;	} 
 	
 	public Location getLocation() { return location; }
 	
-	public int visibleDigit() {
-		if(!flipped) { return up; } else { return down; }
-	}
+	public int visibleDigit() { if(!flipped) { return up; } else { return down; } }
 	
-	public boolean getState() {
-		return flipped;
-	}
+	/** Returns flipped state of tile **/
+	public boolean getState() { return flipped; }
+	
 	
 
 }

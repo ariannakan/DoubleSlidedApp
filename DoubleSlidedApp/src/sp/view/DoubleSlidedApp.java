@@ -35,8 +35,6 @@ public class DoubleSlidedApp extends JFrame {
 	public JLabel loseLabel;
 	
 	public boolean moveEnabled = true;
-	
-	public PuzzleView getDrawingPanel() { return panel; }
 
 	/**
 	 * Create the frame.

@@ -47,7 +47,7 @@ public class Solution {
 	public int getTileFromLoc(Location loc){
 		for(Iterator<Tile> it = this.tiles(); it.hasNext();) {
 			Tile tile = it.next();
-			if(tile.location.equals(loc)){
+			if((tile.location.col == loc.col) && (tile.location.row == loc.row)){
 				return tile.visibleDigit();
 			}
 		}

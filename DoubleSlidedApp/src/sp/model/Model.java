@@ -53,11 +53,11 @@ public class Model {
 	}
 	
 	
-	/** Get tile at location **/
-	public Tile getTile(int location) { 
-		
-		return puzzle.get(location); 
-	}
+//	/** Get tile at location **/
+//	public Tile getTile(int location) { 
+//		
+//		return puzzle.get(location); 
+//	}
 	
 	public boolean isEmptyTile(Tile t){
 		if(t.equals(emptyTile)){
@@ -83,5 +83,17 @@ public class Model {
 	public Iterator<Tile> tiles(){
 		return puzzle.iterator();
 	}
+	
+//	/** ONLY FOR TESTING **/
+//	public Tile getTile(Location loc){
+//		for(Iterator<Tile> it = this.tiles(); it.hasNext();) {
+//			Tile tile = it.next();
+//			if(tile.getLocation() == loc){
+//				return tile;
+//			}
+//		}
+//		return null;
+//	}
+	
 	
 }
