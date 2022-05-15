@@ -32,6 +32,7 @@ public class ResetController implements ActionListener {
 		app.loseLabel.setVisible(false);
 		app.winLabel.setVisible(false);
 		app.moveEnabled = true;
+        System.out.println("GAME RESET");
 		app.repaint();
 		
 	}
