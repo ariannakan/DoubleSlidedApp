@@ -16,9 +16,12 @@ At any time, the user can quit the application or reset the puzzle to its initia
 
 As the player moves tiles, the total number of moves so far should be shown to the user.  Naturally, if the player resets the puzzle, the number of moves is reset to zero.
 
+# To run locally on mac M1 - install oracle's Arm 64 DMG Installer jdk-17
+https://download.oracle.com/java/17/latest/jdk-17_macos-aarch64_bin.dmg
+then run ./run.sh
 
-
-# To run on mac M1 - install XQuartz and set up X11 forwarding
+# To run on mac M1 docker - install XQuartz and set up X11 forwarding
 https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088
+then run ./run_docker.sh
 
 
