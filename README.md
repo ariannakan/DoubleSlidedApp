@@ -20,6 +20,9 @@ As the player moves tiles, the total number of moves so far should be shown to t
 https://download.oracle.com/java/17/latest/jdk-17_macos-aarch64_bin.dmg
 then run ./run.sh to compile and run the java application
 
+If you modify a .java file, you will need to recompile that file:
+TEMP: to compile a single file: remove the .class file and run `javac -cp <whatever classpath you have> path/to/YourClass.java`
+
 ### To run on mac M1 docker - install XQuartz and set up X11 forwarding
 https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088
 then run ./run_docker.sh
